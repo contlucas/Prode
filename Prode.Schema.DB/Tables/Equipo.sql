@@ -1,0 +1,6 @@
+﻿CREATE TABLE [dbo].[Equipo]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [Nombre] NVARCHAR(100) NOT NULL, 
+    [FechaAlta] DATETIME2 NOT NULL DEFAULT getdate()
+)
