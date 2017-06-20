@@ -9,17 +9,28 @@ using System.Net.Http;
 using System.Web.Http;
 
 namespace Prode.Api.Controllers {
+    /// <summary>
+    /// 
+    /// </summary>
     public class EquiposController : ApiController {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         [ActionName("GetAll")]
         public IEnumerable<EquipoModel> Index() {
             return this.GetAll();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="element"></param>
+        /// <returns></returns>
         [HttpPost]
         [ActionName("Create")]
         public HttpResponseMessage CreateEquipo(EquipoModel element) {
-            EstadoResponse estado = new EstadoResponse();
             try {
                 using (ProdeDB db = new ProdeDB()) {
                     var equipo = new Equipo();
@@ -29,28 +40,37 @@ namespace Prode.Api.Controllers {
                     db.Equipo.Add(equipo);
                     db.SaveChanges();
 
-                    estado.Estado = EstadoCode.Ok;
-                    estado.Descripcion = "Creado correctamente";
-                    estado.Data = this.CreateEquipoModel(equipo);
-                    return ProdeUtils.CreateResponse(estado, HttpStatusCode.Created);
+                    return ProdeUtils.CreateResponse(new EstadoResponse() {
+                        Estado = EstadoCode.Ok,
+                        Descripcion = "Equipo creado correctamente",
+                        Data = "no implementado"
+                    }, HttpStatusCode.Created);
                 }
             }
             catch (ProdeApiException ex) {
-                estado.Estado = EstadoCode.Error;
-                estado.Descripcion = ex.Message;
-                return ProdeUtils.CreateResponse(estado, ex.CodigoEstado);
+                return ProdeUtils.CreateResponse(new EstadoResponse() {
+                    Estado = EstadoCode.Error,
+                    Descripcion = ex.Message,
+                    Data = "no implementado"
+                }, ex.CodigoEstado);
             }
             catch (Exception ex) {
-                estado.Estado = EstadoCode.Error;
-                estado.Descripcion = ex.Message;
-                return ProdeUtils.CreateResponse(estado, HttpStatusCode.InternalServerError);
+                return ProdeUtils.CreateResponse(new EstadoResponse() {
+                    Estado = EstadoCode.Error,
+                    Descripcion = ex.Message,
+                    Data = "no implementado"
+                }, HttpStatusCode.InternalServerError);
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="element"></param>
+        /// <returns></returns>
         [HttpPost]
         [ActionName("Update")]
         public HttpResponseMessage UpdateEquipo(EquipoModel element) {
-            EstadoResponse estado = new EstadoResponse();
             try {
                 using (ProdeDB db = new ProdeDB()) {
                     var equipo = db.Equipo.Find(element.Id);
@@ -62,24 +82,33 @@ namespace Prode.Api.Controllers {
                     db.Entry(equipo).State = System.Data.Entity.EntityState.Modified;
                     db.SaveChanges();
 
-                    estado.Estado = EstadoCode.Ok;
-                    estado.Descripcion = "Actualizado correctamente";
-                    estado.Data = this.CreateEquipoModel(equipo);
-                    return ProdeUtils.CreateResponse(estado, HttpStatusCode.OK);
+                    return ProdeUtils.CreateResponse(new EstadoResponse() {
+                        Estado = EstadoCode.Ok,
+                        Descripcion = "Actualizado correctamente",
+                        Data = "no implementado"
+                    }, HttpStatusCode.OK);
                 }
             }
             catch (ProdeApiException ex) {
-                estado.Estado = EstadoCode.Error;
-                estado.Descripcion = ex.Message;
-                return ProdeUtils.CreateResponse(estado, ex.CodigoEstado);
+                return ProdeUtils.CreateResponse(new EstadoResponse() {
+                    Estado = EstadoCode.Error,
+                    Descripcion = ex.Message,
+                    Data = "no implementado"
+                }, ex.CodigoEstado);
             }
             catch (Exception ex) {
-                estado.Estado = EstadoCode.Error;
-                estado.Descripcion = ex.Message;
-                return ProdeUtils.CreateResponse(estado, HttpStatusCode.InternalServerError);
+                return ProdeUtils.CreateResponse(new EstadoResponse() {
+                    Estado = EstadoCode.Error,
+                    Descripcion = ex.Message,
+                    Data = "no implementado"
+                }, HttpStatusCode.InternalServerError);
             }
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpPost]
         [ActionName("Delete")]
         public HttpResponseMessage DeleteEquipo(int id) {
@@ -94,21 +123,26 @@ namespace Prode.Api.Controllers {
                     db.Entry(equipo).State = System.Data.Entity.EntityState.Deleted;
                     db.SaveChanges();
 
-                    estado.Estado = EstadoCode.Ok;
-                    estado.Descripcion = "Eliminado correctamente";
-                    estado.Data = this.CreateEquipoModel(equipo);
-                    return ProdeUtils.CreateResponse(estado, HttpStatusCode.OK);
+                    return ProdeUtils.CreateResponse(new EstadoResponse() {
+                        Estado = EstadoCode.Ok,
+                        Descripcion = "Eliminado correctamente",
+                        Data = "no implementado"
+                    }, HttpStatusCode.OK);
                 }
             }
             catch (ProdeApiException ex) {
-                estado.Estado = EstadoCode.Error;
-                estado.Descripcion = ex.Message;
-                return ProdeUtils.CreateResponse(estado, ex.CodigoEstado);
+                return ProdeUtils.CreateResponse(new EstadoResponse() {
+                    Estado = EstadoCode.Error,
+                    Descripcion = ex.Message,
+                    Data = "no implementado"
+                }, ex.CodigoEstado);
             }
             catch (Exception ex) {
-                estado.Estado = EstadoCode.Error;
-                estado.Descripcion = ex.Message;
-                return ProdeUtils.CreateResponse(estado, HttpStatusCode.InternalServerError);
+                return ProdeUtils.CreateResponse(new EstadoResponse() {
+                    Estado = EstadoCode.Error,
+                    Descripcion = ex.Message,
+                    Data = "no implementado"
+                }, HttpStatusCode.InternalServerError);
             }
         }
 
@@ -116,13 +150,13 @@ namespace Prode.Api.Controllers {
             var equipos = new List<EquipoModel>();
             using (ProdeDB db = new ProdeDB()) {
                 foreach (var i in db.Equipo.ToList()) {
-                    equipos.Add(this.CreateEquipoModel(i));
+                    equipos.Add(this.CreateEquipoModelElement(i));
                 }
                 return equipos;
             }
         }
 
-        private EquipoModel CreateEquipoModel(Equipo element, bool createNew = false) {
+        private EquipoModel CreateEquipoModelElement(Equipo element, bool createNew = false) {
             if (element != null) {
                 return new EquipoModel() {
                     FechaAlta = element.FechaAlta,
@@ -133,6 +167,24 @@ namespace Prode.Api.Controllers {
             else {
                 if (createNew) {
                     return new EquipoModel();
+                }
+                else {
+                    return null;
+                }
+            }
+        }
+
+        private Equipo CreateEquipoElement(Equipo element, bool createNew = false) {
+            if (element != null) {
+                return new Equipo() {
+                    FechaAlta = element.FechaAlta,
+                    Id = element.Id,
+                    Nombre = element.Nombre
+                };
+            }
+            else {
+                if (createNew) {
+                    return new Equipo();
                 }
                 else {
                     return null;
