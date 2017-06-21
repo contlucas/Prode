@@ -88,6 +88,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\libs\angular.js" />
     <Content Include="Scripts\app\app.js" />
@@ -95,6 +96,7 @@
     <Content Include="Scripts\libs\r.js" />
     <Content Include="Scripts\libs\require.js" />
     <Content Include="package.json" />
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Scripts\_references.js" />
     <Content Include="Scripts\app\require-config.js" />
     <Content Include="Web.config" />
