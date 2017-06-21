@@ -18,24 +18,8 @@ namespace Prode.Api {
             // Web API routes
             config.MapHttpAttributeRoutes();
 
-            //config.Routes.MapHttpRoute(
-            //    name: "Api1",
-            //    routeTemplate: "api/{controller}/{action}/{id}",
-            //    defaults: new {
-            //        controller = "Home",
-            //        action = "Index",
-            //        id = RouteParameter.Optional
-            //    }
-            //);
-
-            //config.Routes.MapHttpRoute(
-            //    name: "Api2",
-            //    routeTemplate: "api/{controller}/{id}",
-            //    defaults: new { id = RouteParameter.Optional }
-            //);
-
             config.Routes.MapHttpRoute(
-                name: "Api3",
+                name: "apiprode",
                 routeTemplate: "api/v1/{controller}/{action}/{id}",
                 defaults: new {
                     controller = "Home",
