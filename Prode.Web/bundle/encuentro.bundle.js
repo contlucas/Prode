@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 183);
+/******/ 	return __webpack_require__(__webpack_require__.s = 185);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -22379,7 +22379,9 @@ module.exports = ReactDOMInvalidARIAHook;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 183 */
+/* 183 */,
+/* 184 */,
+/* 185 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22396,19 +22398,19 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var React = __webpack_require__(81);
 var ReactDOM = __webpack_require__(97);
 
-var Index = function (_React$Component) {
-    _inherits(Index, _React$Component);
+var Encuentro = function (_React$Component) {
+    _inherits(Encuentro, _React$Component);
 
-    function Index(props) {
-        _classCallCheck(this, Index);
+    function Encuentro(props) {
+        _classCallCheck(this, Encuentro);
 
-        var _this = _possibleConstructorReturn(this, (Index.__proto__ || Object.getPrototypeOf(Index)).call(this, props));
+        var _this = _possibleConstructorReturn(this, (Encuentro.__proto__ || Object.getPrototypeOf(Encuentro)).call(this, props));
 
-        _this.state = { nombre: "lucas" };
+        _this.state = { nombre: "hernan" };
         return _this;
     }
 
-    _createClass(Index, [{
+    _createClass(Encuentro, [{
         key: "render",
         value: function render() {
             return React.createElement(
@@ -22420,10 +22422,10 @@ var Index = function (_React$Component) {
         }
     }]);
 
-    return Index;
+    return Encuentro;
 }(React.Component);
 
-ReactDOM.render(React.createElement(Index, null), document.getElementById("app"));
+ReactDOM.render(React.createElement(Encuentro, null), document.getElementById("app"));
 
 /***/ })
 /******/ ]);
