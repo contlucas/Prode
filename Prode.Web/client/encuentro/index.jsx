@@ -1,11 +1,11 @@
 ﻿var React = require("react");
 var ReactDOM = require("react-dom");
 
-class Index extends React.Component {
+class Encuentro extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = { nombre: "lucas" };
+        this.state = { nombre: "hernan" };
     }
 
     render() {
@@ -17,4 +17,4 @@ class Index extends React.Component {
     }
 }
 
-ReactDOM.render(<Index />, document.getElementById("app"));
+ReactDOM.render(<Encuentro />, document.getElementById("app"));
