@@ -10,7 +10,7 @@ namespace Prode.Web.Controllers {
         // GET: Home
         public ActionResult Index() {
             var reactComponent = new ReactComponent() {
-                Name = "home"
+                BundleName = "home"
             };
 
             return View("Index", reactComponent);
@@ -18,7 +18,7 @@ namespace Prode.Web.Controllers {
 
         public ActionResult Equipo() {
             var reactComponent = new ReactComponent() {
-                Name = "equipo"
+                BundleName = "equipo"
             };
 
             return View("Index", reactComponent);
@@ -26,7 +26,7 @@ namespace Prode.Web.Controllers {
 
         public ActionResult Encuentro() {
             var reactComponent = new ReactComponent() {
-                Name = "encuentro"
+                BundleName = "encuentro"
             };
 
             return View("Index", reactComponent);
