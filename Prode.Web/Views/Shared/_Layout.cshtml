@@ -1,14 +1,18 @@
 ﻿<!DOCTYPE html>
 
-<html>
+<html ng-app="app">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
+    <script src="~/Scripts/libs/require.js" data-main="/Scripts/app/app"></script>
+    <script src="~/Scripts/app/require-config.js"></script>
     <title>@ViewBag.Title</title>
 </head>
 <body>
-    <div id="main">
+    <div ng-controller="AppController">
         @RenderBody()
+        {{nombre}}
     </div>
+    <div id="test"></div>
 </body>
 </html>
