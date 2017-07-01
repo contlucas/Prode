@@ -89,8 +89,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="client\encuentro\index.jsx" />
-    <Content Include="client\equipo\index.jsx" />
-    <Content Include="client\home\index.jsx" />
+    <Content Include="client\equipo\actions\equipoActions.js" />
+    <Content Include="client\equipo\components\equipo.jsx" />
+    <Content Include="client\equipo\constants\equipoConstants.js" />
+    <Content Include="client\dispatcher\appDispatcher.js" />
+    <Content Include="client\equipo\stores\equipoStore.js" />
+    <Content Include="client\home\components\home.jsx" />
+    <Content Include="Content\bootstrap.css" />
     <Content Include="Global.asax" />
     <Content Include="package.json" />
     <Content Include="webpack.config.js" />
@@ -123,6 +128,11 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="bundle\" />
+    <Folder Include="client\equipo\dispatcher\" />
+    <Folder Include="client\home\actions\" />
+    <Folder Include="client\home\constants\" />
+    <Folder Include="client\home\dispatcher\" />
+    <Folder Include="client\home\stores\" />
     <Folder Include="Scripts\app\" />
     <Folder Include="Scripts\libs\" />
   </ItemGroup>
