@@ -1,6 +1,7 @@
 ﻿import React from "react";
 import ReactDOM from "react-dom";
-import EquipoActions from "../actions/equipoActions";
+import aciones from "../actions/equipoActions";
+import almacenes from "../stores/equipoStore";
 
 class Equipo extends React.Component {
     constructor(props) {
@@ -9,9 +10,6 @@ class Equipo extends React.Component {
         this.state = {
             nombre: props.nombre || ""
         };
-
-        this.onHandleButtonClick = this.onHandleButtonClick.bind(this);
-        this.onHandleChange = this.onHandleChange.bind(this);
     }
 
     onHandleChange(event) {
@@ -21,18 +19,18 @@ class Equipo extends React.Component {
     }
 
     onHandleButtonClick() {
-        EquipoActions.saveEquipo(this.state.nombre)
+        aciones.saveEquipo(this.state.nombre);
     }
 
     render() {
         return (
             <div>
-                <label>
-                    Nombre de equipo:
-                    </label>
-                <input value={this.state.nombre} placeholder="Nombre del equipo"
-                    onChange={this.onHandleChange} />
-                <button type="button" onClick={this.onHandleButtonClick}>Guardar</button>
+                <label>Nombre de equipo: </label>
+                <input placeholder="Nombre del equipo"
+                    value={this.state.nombre}
+                    onChange={this.onHandleChange.bind(this)} />
+                <button type="button"
+                    onClick={this.onHandleButtonClick.bind(this)}>Guardar</button>
             </div>
         );
     }

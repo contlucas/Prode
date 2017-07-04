@@ -1,14 +1,11 @@
-﻿import AppDispatcher from "../../dispatcher/appDispatcher";
-import ConstEquipo from "../constants/equipoConstants";
-import EquipoStore from "../stores/equipoStore";
+﻿import dispatcher from "../../dispatcher";
+import constantes from "../constants/equipoConstants";
 
-const EquipoActions = {
+export default {
     saveEquipo: (nombre) => {
-        AppDispatcher.dispatch({
-            actionType: ConstEquipo.SAVE_EQUIPO,
+        dispatcher.dispatch({
+            type: constantes.SAVE_EQUIPO,
             nombre: nombre
         });
     }
 }
-
-export default EquipoActions;

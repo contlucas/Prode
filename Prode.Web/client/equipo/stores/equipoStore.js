@@ -1,23 +1,25 @@
-﻿import AppDispatcher from "../../dispatcher/appDispatcher";
-import ConstEquipo from "../constants/equipoConstants";
+﻿import dispatcher from "../../dispatcher";
+import constantes from "../constants/equipoConstants";
+import { EventEmitter } from "events";
 
-class EquipoStoreClass {
-    saveEquipo(asd) {
-        console.log("equipo " + asd + " ha sido guardado correctamente");
+class EquipoStoreClass extends EventEmitter {
+    saveEquipo(nombre) {
+        console.log("equipo " + nombre + " ha sido guardado correctamente");
+    }
+
+    handleChanges(action) {
+        switch (action.type) {
+            case constantes.SAVE_EQUIPO: {
+                this.saveEquipo(action.nombre);
+                break;
+            }
+            default: {
+                console.log("sin implementar", action.type);
+            }
+        }
     }
 }
 
-const EquipoStore = new EquipoStoreClass();
-
-EquipoStore.dispatchToken = AppDispatcher.register(action => {
-    switch (action.actionType) {
-        case ConstEquipo.SAVE_EQUIPO: {
-            EquipoStore.saveEquipo(action.nombre);
-        }
-        default: {
-            break;
-        }
-    }
-});
-
-export default EquipoStore;
+const equipoStore = new EquipoStoreClass();
+dispatcher.register(equipoStore.handleChanges.bind(equipoStore));
+export default equipoStore;

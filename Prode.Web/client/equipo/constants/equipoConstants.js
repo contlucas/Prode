@@ -1,6 +1,3 @@
-﻿//Constants
-const ConstEquipo = {
+﻿export default {
     SAVE_EQUIPO: "SAVE_EQUIPO"
 }
-
-export default ConstEquipo;
