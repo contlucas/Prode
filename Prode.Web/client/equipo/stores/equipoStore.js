@@ -1,10 +1,12 @@
 ﻿import dispatcher from "../../dispatcher";
 import constantes from "../constants/equipoConstants";
+import { TestearJquery, SaveEquipoJquery } from "../../utils/utils";
 import { EventEmitter } from "events";
 
 class EquipoStoreClass extends EventEmitter {
     saveEquipo(nombre) {
         console.log("equipo " + nombre + " ha sido guardado correctamente");
+        SaveEquipoJquery(nombre);
     }
 
     handleChanges(action) {
