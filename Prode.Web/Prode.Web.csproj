@@ -88,17 +88,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="favicon.ico" />
+    <Content Include="client\encuentro\index.jsx" />
+    <Content Include="client\equipo\actions\equipoActions.js" />
+    <Content Include="client\equipo\components\equipo.jsx" />
+    <Content Include="client\equipo\constants\equipoConstants.js" />
+    <Content Include="client\dispatcher.js" />
+    <Content Include="client\equipo\stores\equipoStore.js" />
+    <Content Include="client\home\components\home.jsx" />
+    <Content Include="client\utils\utils.js" />
+    <Content Include="Content\bootstrap.css" />
     <Content Include="Global.asax" />
-    <Content Include="Scripts\libs\angular.js" />
-    <Content Include="Scripts\app\app.js" />
-    <Content Include="Scripts\libs\jquery.js" />
-    <Content Include="Scripts\libs\r.js" />
-    <Content Include="Scripts\libs\require.js" />
     <Content Include="package.json" />
+    <Content Include="webpack.config.js" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
-    <None Include="Scripts\_references.js" />
-    <Content Include="Scripts\app\require-config.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -107,11 +109,14 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ReactComponent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
-    <Content Include="packages.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <None Include="Web.Debug.config">
@@ -123,8 +128,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="client\" />
-    <Folder Include="Models\" />
+    <Folder Include="bundle\" />
+    <Folder Include="client\home\actions\" />
+    <Folder Include="client\home\constants\" />
+    <Folder Include="client\home\stores\" />
+    <Folder Include="Scripts\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -158,6 +166,10 @@
     <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
   </Target>
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
