@@ -2,9 +2,9 @@
 
 module.exports = {
     entry: {
-        home: "./client/home/index.jsx",
-        equipo: "./client/equipo/index.jsx",
-        encuentro: "./client/encuentro/index.jsx"
+        //home: "./client/home/components/home.jsx",
+        equipo: "./client/equipo/components/equipo.jsx",
+        //encuentro: "./client/encuentro/index.jsx"
     },
     output: {
         path: path.resolve(__dirname, "bundle"),
