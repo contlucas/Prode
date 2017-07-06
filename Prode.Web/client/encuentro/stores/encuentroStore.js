@@ -29,11 +29,6 @@ class EncuentroStoreClass extends EventEmitter {
     }
 
     saveEncuentro(encuentro) {
-        //console.log("equipo " + nombre + " ha sido guardado correctamente");
-        //SaveEquipoJquery(nombre);
-        //util.saveEquipo("asd");
-        //callAjax();
-        //this.emit("change");
     }
 
     getEncuentros() {

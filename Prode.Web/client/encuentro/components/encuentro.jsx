@@ -80,7 +80,7 @@ class Encuentro extends React.Component {
                 <button type="button"
                     onClick={this.onHandleButtonClick.bind(this)}>Guardar</button>
 
-                <table className="table">
+                <table className="table table-bordered">
                     <tbody>
                         {rows}
                     </tbody>
