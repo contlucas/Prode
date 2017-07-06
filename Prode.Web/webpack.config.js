@@ -3,8 +3,8 @@
 module.exports = {
     entry: {
         //home: "./client/home/components/home.jsx",
-        equipo: "./client/equipo/components/equipo.jsx",
-        //encuentro: "./client/encuentro/index.jsx"
+        //equipo: "./client/equipo/components/equipo.jsx",
+        encuentro: "./client/encuentro/components/encuentro.jsx"
     },
     output: {
         path: path.resolve(__dirname, "bundle"),
