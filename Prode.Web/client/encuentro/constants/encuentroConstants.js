@@ -1,0 +1,4 @@
+﻿export default {
+    SAVE_ENCUENTRO: "SAVE_ENCUENTRO",
+    GET_ENCUENTROS: "GET_ENCUENTROS"
+}

@@ -88,14 +88,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="client\encuentro\index.jsx" />
+    <Content Include="client\encuentro\actions\encuentroActions.js" />
+    <Content Include="client\encuentro\components\encuentro.jsx" />
+    <Content Include="client\encuentro\constants\encuentroConstants.js" />
+    <Content Include="client\encuentro\stores\encuentroStore.js" />
     <Content Include="client\equipo\actions\equipoActions.js" />
     <Content Include="client\equipo\components\equipo.jsx" />
     <Content Include="client\equipo\constants\equipoConstants.js" />
     <Content Include="client\dispatcher.js" />
     <Content Include="client\equipo\stores\equipoStore.js" />
     <Content Include="client\home\components\home.jsx" />
-    <Content Include="client\utils\utils.js" />
+    <Content Include="client\common\utils.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Global.asax" />
     <Content Include="package.json" />
