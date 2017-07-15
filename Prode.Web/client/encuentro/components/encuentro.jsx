@@ -3,15 +3,20 @@ import ReactDOM from "react-dom";
 import actions from "../actions/encuentroActions";
 import store from "../stores/encuentroStore";
 
+import { TablaEncuentro } from "../components/tableEncuentro";
+import { SelectEquipo } from "../components/selectEquipo";
+
 class Encuentro extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            encuentros: []
+            encuentros: [], equipos: [], error: {}, idLocal: "", idVisitante: "", fecha: ""
         };
 
         this.onChange = this.onChange.bind(this);
+        this.onElementsChange = this.onElementsChange.bind(this);
+        this.onButtonClick = this.onButtonClick.bind(this);
     }
 
     componentWillMount() {
@@ -20,6 +25,7 @@ class Encuentro extends React.Component {
 
     componentDidMount() {
         actions.getEncuentros();
+        actions.getEquipos();
     }
 
     componentWillUnmount() {
@@ -28,63 +34,71 @@ class Encuentro extends React.Component {
 
     onChange() {
         this.setState({
-            encuentros: store.getEncuentros()
+            encuentros: store.getEncuentros(),
+            equipos: store.getEquipos(),
+            error: store.getError()
         });
     }
 
-    onHandleChange(event) {
+    onElementsChange(event) {
         this.setState({
-            nombre: event.target.value
+            [event.target.name]: event.target.value
         });
     }
 
-    onHandleButtonClick() {
-        actions.saveEquipo(this.state.nombre);
+    onButtonClick() {
+        actions.saveEncuentro({
+            Fecha: this.state.fecha,
+            IdLocal: this.state.idLocal,
+            IdVisitante: this.state.idVisitante
+        });
     }
 
     render() {
-        let rows = (
-            this.state.encuentros.map((e) => {
-                return <tr key={e.Id}>
-                    <td>
-                        Fecha: {e.Fecha}
-                    </td>
-                    <td>
-                        FechaAlta: {e.FechaAlta}
-                    </td>
-                    <td>
-                        Id: {e.Id}
-                    </td>
-                    <td>
-                        IdLocal: {e.IdLocal}
-                    </td>
-                    <td>
-                        IdVisitante: {e.IdVisitante}
-                    </td>
-                    <td>
-                        Nombre Local: {e.NombreLocal}
-                    </td>
-                    <td>
-                        Nombre Visitante: {e.NombreVisitante}
-                    </td>
-                </tr>
-            })
-        );
-
         return (
             <div>
-                <label>Nombre de equipo: </label>
-                <input placeholder="Nombre del equipo"
-                    value={this.state.nombre}
-                    onChange={this.onHandleChange.bind(this)} />
-                <button type="button"
-                    onClick={this.onHandleButtonClick.bind(this)}>Guardar</button>
+                <div>
+                    {this.state.error.Descripcion}
+                </div>
 
-                <table className="table table-bordered">
+                <table className="table table-border">
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Local</th>
+                            <th>Visitante</th>
+                        </tr>
+                    </thead>
                     <tbody>
-                        {rows}
+                        <tr>
+                            <td>
+                                <input className="form-control" type="text" value={this.state.fecha} name="fecha"
+                                    onChange={this.onElementsChange} />
+                            </td>
+                            <td>
+                                <SelectEquipo name="idLocal"
+                                    equipos={this.state.equipos}
+                                    onParentChange={this.onElementsChange} />
+                            </td>
+                            <td>
+                                <SelectEquipo name="idVisitante"
+                                    equipos={this.state.equipos}
+                                    onParentChange={this.onElementsChange} />
+                            </td>
+                        </tr>
                     </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colSpan="3">
+                                <div className="text-right">
+                                    <button className="btn btn-primary" type="button" onClick={this.onButtonClick}>Guardar</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tfoot>
                 </table>
+
+                <TablaEncuentro encuentros={this.state.encuentros} />
             </div>
         );
     }

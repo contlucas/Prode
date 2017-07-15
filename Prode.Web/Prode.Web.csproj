@@ -90,6 +90,8 @@
   <ItemGroup>
     <Content Include="client\encuentro\actions\encuentroActions.js" />
     <Content Include="client\encuentro\components\encuentro.jsx" />
+    <Content Include="client\encuentro\components\selectEquipo.jsx" />
+    <Content Include="client\encuentro\components\tableEncuentro.jsx" />
     <Content Include="client\encuentro\constants\encuentroConstants.js" />
     <Content Include="client\encuentro\stores\encuentroStore.js" />
     <Content Include="client\equipo\actions\equipoActions.js" />
