@@ -45,7 +45,7 @@ class Encuentro extends React.Component {
                 <div className="row" style={{ marginBottom: "10px" }}>
                     <label className="label-control col-xs-12 col-sm-2" htmlFor="user">Usuario</label>
                     <div className="col-xs-12 col-sm-10">
-                        <input type="text" maxLength="5" name="user"
+                        <input type="text" maxLength="10" name="user"
                             value={this.state.user} className="form-control"
                             onChange={this.onElementsChange} />
                     </div>
@@ -54,7 +54,7 @@ class Encuentro extends React.Component {
                 <div className="row" style={{ marginBottom: "10px" }}>
                     <label className="label-control col-xs-12 col-sm-2" htmlFor="password">Contraseña</label>
                     <div className="col-xs-12 col-sm-10">
-                        <input type="password" maxLength="5" name="password"
+                        <input type="password" maxLength="20" name="password"
                             value={this.state.password} className="form-control"
                             onChange={this.onElementsChange} />
                     </div>
