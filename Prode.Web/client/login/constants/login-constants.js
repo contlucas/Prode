@@ -1,0 +1,4 @@
+﻿export default {
+    LOGIN_SUCCEED: "LOGIN_SUCCEED",
+    ERROR_LOGIN: "ERROR_LOGIN"
+}

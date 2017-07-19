@@ -1,5 +1,5 @@
-﻿import dispatcher from "../../dispatcher";
-import constantes from "../constants/encuentroConstants";
+﻿import dispatcher from "dispatcher";
+import constantes from "../constants/encuentro-constants";
 import { EventEmitter } from "events";
 
 const CHANGE_EVENT = "change";
@@ -29,17 +29,9 @@ class EncuentroStoreClass extends EventEmitter {
     addChangeListener(callback) { this.on(CHANGE_EVENT, callback) }
     removeChangeListener(callback) { this.removeListener(CHANGE_EVENT, callback) }
 
-    getEncuentros() {
-        return _encuentros;
-    }
-
-    getEquipos() {
-        return _equipos;
-    }
-
-    getError() {
-        return _error;
-    }
+    getEncuentros() { return _encuentros; }
+    getEquipos() { return _equipos; }
+    getError() { return _error; }
 
     handleChanges(action) {
         switch (action.type) {

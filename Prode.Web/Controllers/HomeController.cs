@@ -31,5 +31,13 @@ namespace Prode.Web.Controllers {
 
             return View("Index", reactComponent);
         }
+
+        public ActionResult Login() {
+            var reactComponent = new ReactComponent() {
+                BundleName = "login"
+            };
+
+            return View("Index", reactComponent);
+        }
     }
 }

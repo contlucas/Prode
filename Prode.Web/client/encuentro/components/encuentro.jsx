@@ -1,17 +1,20 @@
 ﻿import React from "react";
 import ReactDOM from "react-dom";
-import actions from "../actions/encuentroActions";
-import store from "../stores/encuentroStore";
+import actions from "../actions/encuentro-actions";
+import store from "../stores/encuentro-store";
 
-import { TablaEncuentro } from "../components/tableEncuentro";
-import { SelectEquipo } from "../components/selectEquipo";
+import { TablaEncuentro } from "../components/table-encuentro";
+import { SelectEquipo } from "../components/select-equipo";
+import { CustomInput } from "custom-input";
 
 class Encuentro extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            encuentros: [], equipos: [], error: {}, idLocal: "", idVisitante: "", fecha: ""
+            encuentros: [], equipos: [], error: {},
+            fecha: "", idLocal: "", idVisitante: "",
+            reset: false
         };
 
         this.onChange = this.onChange.bind(this);
@@ -36,13 +39,15 @@ class Encuentro extends React.Component {
         this.setState({
             encuentros: store.getEncuentros(),
             equipos: store.getEquipos(),
-            error: store.getError()
+            error: store.getError(),
+            fecha: "", idLocal: "", idVisitante: "", reset: true
         });
     }
 
     onElementsChange(event) {
         this.setState({
-            [event.target.name]: event.target.value
+            [event.target.name]: event.target.value,
+            reset: false
         });
     }
 
@@ -72,17 +77,19 @@ class Encuentro extends React.Component {
                     <tbody>
                         <tr>
                             <td>
-                                <input className="form-control" type="text" value={this.state.fecha} name="fecha"
-                                    onChange={this.onElementsChange} />
+                                <CustomInput type="text" name="fecha" onlyNumbers={true} maxLength="5"
+                                    onParentChange={this.onElementsChange} />
                             </td>
                             <td>
                                 <SelectEquipo name="idLocal"
                                     equipos={this.state.equipos}
+                                    reset={this.state.reset}
                                     onParentChange={this.onElementsChange} />
                             </td>
                             <td>
                                 <SelectEquipo name="idVisitante"
                                     equipos={this.state.equipos}
+                                    reset={this.state.reset}
                                     onParentChange={this.onElementsChange} />
                             </td>
                         </tr>

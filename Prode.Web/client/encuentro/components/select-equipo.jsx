@@ -4,7 +4,7 @@ export class SelectEquipo extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = { value: "" };
+        this.state = { value: "0" };
         this.onChildChange = this.onChildChange.bind(this);
     }
 
@@ -13,10 +13,16 @@ export class SelectEquipo extends React.Component {
         this.props.onParentChange(event);
     }
 
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.reset) {
+            this.setState({ value: "0" });
+        }
+    }
+
     render() {
         let options = (
             this.props.equipos.map((e) => {
-                return <option id={e.Id} key={e.Id} value={e.Id}>{e.Nombre}</option>
+                return <option id={"select_equipo_option" + e.Id} key={e.Id} value={e.Id}>{e.Nombre}</option>
             })
         );
 
@@ -24,8 +30,8 @@ export class SelectEquipo extends React.Component {
             value={this.state.value}
             name={this.props.name}
             onChange={this.onChildChange}>
-            <option>Seleccionar equipo</option>
+            <option value="0">Seleccionar equipo</option>
             {options}
-        </select>
+        </select >
     }
 }
