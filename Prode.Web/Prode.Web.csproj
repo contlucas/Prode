@@ -88,17 +88,25 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="client\encuentro\actions\encuentroActions.js" />
+    <Content Include="client\common\components\custom-input.jsx" />
+    <Content Include="client\common\rest-api-prode-config.js" />
+    <Content Include="client\encuentro\actions\encuentro-actions.js" />
     <Content Include="client\encuentro\components\encuentro.jsx" />
-    <Content Include="client\encuentro\constants\encuentroConstants.js" />
-    <Content Include="client\encuentro\stores\encuentroStore.js" />
+    <Content Include="client\encuentro\components\select-equipo.jsx" />
+    <Content Include="client\encuentro\components\table-encuentro.jsx" />
+    <Content Include="client\encuentro\constants\encuentro-constants.js" />
+    <Content Include="client\encuentro\stores\encuentro-store.js" />
     <Content Include="client\equipo\actions\equipoActions.js" />
     <Content Include="client\equipo\components\equipo.jsx" />
     <Content Include="client\equipo\constants\equipoConstants.js" />
-    <Content Include="client\dispatcher.js" />
+    <Content Include="client\dispatcher\dispatcher.js" />
     <Content Include="client\equipo\stores\equipoStore.js" />
     <Content Include="client\home\components\home.jsx" />
     <Content Include="client\common\utils.js" />
+    <Content Include="client\login\actions\login-actions.js" />
+    <Content Include="client\login\components\login.jsx" />
+    <Content Include="client\login\constants\login-constants.js" />
+    <Content Include="client\login\stores\login-store.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />

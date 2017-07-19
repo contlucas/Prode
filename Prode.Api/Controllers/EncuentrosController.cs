@@ -58,9 +58,13 @@ namespace Prode.Api.Controllers {
                     db.Encuentro.Add(encuentro);
                     db.SaveChanges();
 
+                    encuentro = db.Encuentro.Include("Equipo").Include("Equipo1").Where(e => e.Id == encuentro.Id).First();
+                    element = this.CreateEncuentroModelElement(encuentro);
+
                     return ProdeUtils.CreateResponse(new EstadoResponse() {
                         Estado = EstadoCode.Ok,
-                        Descripcion = "Encuentro creado correctamente"
+                        Descripcion = "Encuentro creado correctamente",
+                        Data = element
                     }, HttpStatusCode.Created);
                 }
             }
