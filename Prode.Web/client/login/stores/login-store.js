@@ -20,7 +20,6 @@ class LoginStoreClass extends EventEmitter {
     handleChanges(action) {
         switch (action.type) {
             case constantes.LOGIN_SUCCEED: {
-                addEncuentro(action.encuentro)
                 this.emitChange();
                 break;
             }
