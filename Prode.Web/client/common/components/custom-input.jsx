@@ -12,6 +12,12 @@ export class CustomInput extends React.Component {
         this.onPaste = this.onPaste.bind(this);
     }
 
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.reset) {
+            this.setState({ value: "" });
+        }
+    }
+
     onChange(event) {
         this.setState({ value: event.target.value });
 

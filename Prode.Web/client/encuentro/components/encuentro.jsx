@@ -78,7 +78,7 @@ class Encuentro extends React.Component {
                         <tr>
                             <td>
                                 <CustomInput type="text" name="fecha" onlyNumbers={true} maxLength="5"
-                                    onParentChange={this.onElementsChange} />
+                                    onParentChange={this.onElementsChange} reset={this.state.reset} />
                             </td>
                             <td>
                                 <SelectEquipo name="idLocal"
